@@ -54,7 +54,7 @@ def assess_mood():
         users_mood=whether_valid()
         add_mood_in_diary(users_mood,str_date)
         all_records=read_mood_diary()
-        mood_ckeck=all_records[-7:]
+        mood_part=all_records[-7:]
         if len(all_records)<7:
             return
         whether_happy=0
@@ -62,9 +62,9 @@ def assess_mood():
         whether_apathetic=0
         whether_sad=0
         whether_angry=0
-        for lines in mood_ckeck:
-            line_split=lines.split()
-            mood_type=int(line_split[1])
+        for moods in mood_part:
+            moods_split=moods.split()
+            mood_type=int(moods_split[1])
             if mood_type==2:
                 whether_happy+=1
             elif mood_type==1:
